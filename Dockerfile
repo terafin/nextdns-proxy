@@ -24,6 +24,6 @@ RUN chmod u+r /etc/dnsmasq.conf
 RUN chmod guo+x /var/nextdns/run.sh
 
 HEALTHCHECK --interval=5s --timeout=10s --start-period=5s --retries=3 \
-	CMD dig +time=20 @127.0.0.1 -p 52 nextdns.io && dig +time=20 @127.0.0.1 -p 8053 nextdns.io
+	CMD dig +time=20 @127.0.0.1 -p 53 nextdns.io && dig +time=20 @127.0.0.1 -p 8053 nextdns.io
 
 CMD ["/var/nextdns/run.sh"]
