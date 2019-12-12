@@ -16,8 +16,6 @@ services:
   autoheal:
     container_name: autoheal
     image: willfarrell/autoheal
-    environment:
-      - AUTOHEAL_CONTAINER_LABEL=all
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
@@ -25,6 +23,8 @@ services:
     image: "terafin/nextdns-proxy:latest"
     container_name: nextdns-proxy
     hostname: nextdns-proxy
+    labels:
+      autoheal: "true"
     ports:
      - "53:53/udp"
     environment: # Note, these are ALL optional
