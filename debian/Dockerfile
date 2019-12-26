@@ -14,8 +14,8 @@ RUN apt-get install -fy nextdns dnsmasq
 RUN apt-get -fy install dnsutils
 
 RUN mkdir -p /var/nextdns
-COPY ../run.sh /var/nextdns/run.sh
-COPY ../dnsmasq.conf /etc/dnsmasq.conf
+COPY run.sh /var/nextdns/run.sh
+COPY dnsmasq.conf /etc/dnsmasq.conf
 
 RUN chmod u+r /etc/dnsmasq.conf
 RUN chmod guo+x /var/nextdns/run.sh
