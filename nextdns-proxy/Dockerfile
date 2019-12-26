@@ -1,4 +1,4 @@
-FROM arm32v7/debian:latest
+FROM debian:latest
 
 EXPOSE 53
 EXPOSE 53/udp
