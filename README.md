@@ -15,7 +15,7 @@ version: '2'
 services:
   autoheal:
     container_name: autoheal
-    image: willfarrell/autoheal
+    image: jstrader/autoheal
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
@@ -37,3 +37,8 @@ services:
 To use the compose file, just make it in the directory of your choice, then simply run:
 
 `docker-compose up -d`
+
+Note, for Raspberry Pi deployment, change the line:
+`    image: jstrader/autoheal`
+to be:
+`    image: jstrader/autoheal:latest-arm`
