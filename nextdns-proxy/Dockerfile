@@ -13,14 +13,14 @@ RUN apt-get install -fy nextdns dnsmasq
 
 RUN apt-get -fy install dnsutils
 
+RUN rm -rf /var/lib/apt/lists/*
+
 RUN mkdir -p /var/nextdns
 COPY run.sh /var/nextdns/run.sh
 COPY dnsmasq.conf /etc/dnsmasq.conf
 
 RUN chmod u+r /etc/dnsmasq.conf
 RUN chmod guo+x /var/nextdns/run.sh
-
-RUN rm -rf /var/lib/apt/lists/*
 
 HEALTHCHECK --interval=60s --timeout=10s --start-period=5s --retries=1 \
 	CMD dig +time=20 @127.0.0.1 -p 53 probe-test.dns.nextdns.io && dig +time=20 @127.0.0.1 -p 8053 probe-test.dns.nextdns.io
