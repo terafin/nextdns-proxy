@@ -4,15 +4,24 @@ This is a simple DNS server that wraps up dnsmasq and the nextdns client into a 
 
 ## Example usage
 
-Here is an example docker-compose.yml file that will setup two docker services.
+Here is an example docker-compose.yml file that will setup three docker services.
 
 1. The autoheal service from willfarrell/autoheal that will kill the container if DNS services fail.
 2. The DNS service itself
+3. Will auto update nextdns-proxy
 
 ```
 version: '2'
 
 services:
+  watchtower:
+    container_name: watchtower
+    restart: always
+    image: v2tec/watchtower
+    environment:
+      WATCHTOWER_CLEANUP: "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
   autoheal:
     container_name: autoheal
     image: jstrader/autoheal
