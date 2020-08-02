@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y locales && localedef -i en_US -c -f UTF
 ENV LANG en_US.utf8
 
 RUN mkdir -p /var/nextdns
+
 COPY run.sh /var/nextdns/run.sh
 COPY dnsmasq.conf /etc/dnsmasq.conf
 
