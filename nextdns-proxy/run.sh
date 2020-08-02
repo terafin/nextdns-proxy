@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NEXTDNS_CONFIG_ID=$NEXTDNS_CONFIG
-NEXTDNS_ARGUMENTS="-listen :8053 -report-client-info -log-queries"
+NEXTDNS_ARGUMENTS="-listen :8053 -report-client-info -log-queries -cache-size=10MB -max-ttl=15s"
 
 /etc/init.d/dnsmasq restart
 
