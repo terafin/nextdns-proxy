@@ -6,7 +6,7 @@ NEXTDNS_ARGUMENTS="-listen :8053 -report-client-info -log-queries"
 /etc/init.d/dnsmasq restart
 
 if [ -n "$NEXTDNS_CONFIG" ]; then
-  NEXTDNS_ARGUMENTS+=" -config $NEXTDNS_CONFIG_ID"
+    NEXTDNS_ARGUMENTS+=" -config $NEXTDNS_CONFIG_ID"
 fi
 
 if [ -n "$NEXTDNS_FORWARDING_DOMAIN" ]; then
