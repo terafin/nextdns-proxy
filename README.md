@@ -38,6 +38,9 @@ services:
      - "53:53/udp"
     environment: # Note, these are ALL optional
       NEXTDNS_CONFIG: <<Your NextDNS Config/Endpoint ID here, this can be found on the NextDNS Setup page>
+      NEXTDNS_CONFIG_CUSTOM1: <<Your conditional routing pattern here. Documentation here: https://github.com/nextdns/nextdns/wiki/Conditional-Configuration>
+      NEXTDNS_CONFIG_CUSTOM2: <<Your conditional routing pattern here. Documentation here: https://github.com/nextdns/nextdns/wiki/Conditional-Configuration>
+      NEXTDNS_CONFIG_YOUR_CUSTOM_SUFFIX: <<Your conditional routing pattern here. Documentation here: https://github.com/nextdns/nextdns/wiki/Conditional-Configuration>
       NEXTDNS_FORWARDING_DOMAIN: <<Your Local DNS Name Here, eg: myfancyhome.net>>
       NEXTDNS_FORWARDING_DNSIP: <<Your Local Router's IP Here, eg: 10.0.1.1>>
     restart: always
@@ -48,6 +51,6 @@ To use the compose file, just make it in the directory of your choice, then simp
 `docker-compose up -d`
 
 Note, for Raspberry Pi deployment, change the line:
-`    image: jstrader/autoheal`
+`image: jstrader/autoheal`
 to be:
-`    image: jstrader/autoheal:latest-arm`
+`image: jstrader/autoheal:latest-arm`
