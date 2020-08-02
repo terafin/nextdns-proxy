@@ -5,9 +5,19 @@ NEXTDNS_ARGUMENTS="-listen :8053 -report-client-info -log-queries"
 
 /etc/init.d/dnsmasq restart
 
+echo "Parsing configuration"
+
 if [ -n "$NEXTDNS_CONFIG" ]; then
     NEXTDNS_ARGUMENTS+=" -config $NEXTDNS_CONFIG_ID"
+    echo " => Found base NextDNS Config: $NEXTDNS_CONFIG_ID"
 fi
+
+while IFS='=' read -r -d '' n v; do
+    if [[ "$n" = "NEXTDNS_CONFIG_"* ]]; then
+        echo " => Found additional config: $n => $v"
+        NEXTDNS_ARGUMENTS+=" -config $v"
+    fi
+done < <(env -0)
 
 if [ -n "$NEXTDNS_FORWARDING_DOMAIN" ]; then
     if [ -n "$NEXTDNS_FORWARDING_DNSIP" ]; then
