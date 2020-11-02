@@ -43,6 +43,8 @@ services:
       NEXTDNS_CONFIG_YOUR_CUSTOM_SUFFIX: <<Your conditional routing pattern here. Documentation here: https://github.com/nextdns/nextdns/wiki/Conditional-Configuration>
       NEXTDNS_FORWARDING_DOMAIN: <<Your Local DNS Name Here, eg: myfancyhome.net>>
       NEXTDNS_FORWARDING_DNSIP: <<Your Local Router's IP Here, eg: 10.0.1.1>>
+      NEXTDNS_MAX_TTL: <<Maximum TTL in seconds for hostnames from NextDNS - defaults to 15>>
+      NEXTDNS_CACHE_SIZE: <<Cache size for NextDNS - defaults to 10MB>>
     restart: always
 ```
 

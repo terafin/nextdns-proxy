@@ -1,8 +1,9 @@
 #!/bin/bash
 
+NEXTDNS_MAX_TTL=${NEXTDNS_MAX_TTL:-15}
+NEXTDNS_CACHE_SIZE=${NEXTDNS_CACHE_SIZE:-10MB}
 NEXTDNS_CONFIG_ID=$NEXTDNS_CONFIG
-NEXTDNS_ARGUMENTS="-listen :8053 -report-client-info -log-queries -cache-size=10MB -max-ttl=15s"
-
+NEXTDNS_ARGUMENTS="-listen :8053 -report-client-info -log-queries -cache-size=${NEXTDNS_CACHE_SIZE} -max-ttl=${NEXTDNS_MAX_TTL}s"
 /etc/init.d/dnsmasq restart
 
 echo "Parsing configuration"
