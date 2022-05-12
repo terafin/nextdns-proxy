@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:11
 
 EXPOSE 53
 EXPOSE 53/udp
