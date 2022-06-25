@@ -10,7 +10,6 @@ RUN wget -qO - https://nextdns.io/repo.gpg | apt-key add -
 RUN echo "deb https://nextdns.io/repo/deb stable main" | tee /etc/apt/sources.list.d/nextdns.list
 
 RUN apt-get update ; apt-get install -fy nextdns dnsutils ; rm -rf /var/lib/apt/lists/*
-
 RUN mkdir -p /var/nextdns
 COPY run.sh /var/nextdns/run.sh
 
