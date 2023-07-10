@@ -29,7 +29,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
   nextdns-proxy:
-    image: "terafin/nextdns-proxy:latest"
+    image: "ghcr.io/terafin/nextdns-proxy:latest"
     container_name: nextdns-proxy
     hostname: nextdns-proxy
     labels:
